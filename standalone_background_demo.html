@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>單獨 HTML 範例</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+      background: #f5f5f5;
+      color: #222;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .card {
+      width: min(720px, 90%);
+      padding: 40px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 32px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+    }
+
+    .white { background: #ffffff; color: #222; border: 1px solid #ccc; }
+    .light { background: #f5f5f5; color: #222; }
+    .dark { background: #1e1e1e; color: #fff; }
+    .navy { background: #17202a; color: #fff; }
+  </style>
+</head>
+
+<body>
+  <main class="card">
+    <h1>單獨 HTML 檔案</h1>
+    <p>
+      這是一個完整、獨立的 HTML 檔案。<br />
+      不需要額外 CSS、JavaScript 或網路連線，直接雙擊即可在瀏覽器開啟。
+    </p>
+
+    <div class="buttons">
+      <button class="white" onclick="setBg('#ffffff', '#222222')">White</button>
+      <button class="light" onclick="setBg('#f5f5f5', '#222222')">Light Gray</button>
+      <button class="dark" onclick="setBg('#1e1e1e', '#ffffff')">VS Code Dark</button>
+      <button class="navy" onclick="setBg('#17202a', '#ffffff')">Navy Dark</button>
+    </div>
+  </main>
+
+  <script>
+    function setBg(bg, color) {
+      document.body.style.backgroundColor = bg;
+      document.body.style.color = color;
+    }
+  </script>
+</body>
+</html>
