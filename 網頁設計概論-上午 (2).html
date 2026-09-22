@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網頁設計概論 - 上午課程實作範例</title>
+    <!-- 引入 Tailwind CSS 以實現 RWD 與現代化排版 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 自訂程式碼區塊的卷軸樣式 */
+        pre::-webkit-scrollbar { height: 8px; }
+        pre::-webkit-scrollbar-track { background: #374151; rounded: 4px; }
+        pre::-webkit-scrollbar-thumb { background: #6B7280; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans antialiased p-4 md:p-8">
+
+    <div class="max-w-5xl mx-auto space-y-12">
+        
+        <!-- 標題區塊 -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-blue-900 mb-4">數位工坊：建構現代電商網頁的建築學</h1>
+            <p class="text-lg text-gray-600">上午課程講義 - HTML 互動實作範例</p>
+        </header>
+
+        <!-- Page 2 -->
+        <section class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-6 border-b border-gray-200 bg-blue-50">
+                <h2 class="text-2xl font-bold text-blue-800">Page 2: 網頁運作原理 (餐廳隱喻)</h2>
+                <p class="mt-2 text-gray-700">解說：前端（用餐區）透過點擊按鈕，呼叫 API（服務生），向後端（廚房）請求資料，最後呈現結果。</p>
+            </div>
+            <div class="p-6">
+                <h3 class="font-semibold mb-4 text-gray-500">實際輸出樣貌 (Live Demo)</h3>
+                <div class="border border-gray-200 p-6 rounded-lg bg-gray-50 text-center">
+                    <button id="orderBtn" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition" onclick="placeOrder()">向廚房點餐 (發送 API 請求)</button>
+                    <p id="orderStatus" class="mt-4 text-gray-600 font-medium">目前狀態：等待顧客點餐...</p>
+                </div>
+            </div>
+            <div class="relative bg-gray-900 p-4">
+                <button onclick="copyCode(this)" class="absolute top-4 right-4 bg-gray-700 text-white text-xs px-3 py-1 rounded hover:bg-gray-600">複製代碼</button>
+                <pre class="overflow-x-auto text-green-400 text-sm p-2"><code>&lt;button id="orderBtn" onclick="placeOrder()"&gt;向廚房點餐&lt;/button&gt;
+&lt;p id="orderStatus"&gt;目前狀態：等待顧客點餐...&lt;/p&gt;
+
+&lt;script&gt;
+function placeOrder() {
+    const status = document.getElementById('orderStatus');
+    status.innerText = "服務生(API) 傳遞訂單中...";
+    setTimeout(() =&gt; {
+        status.innerText = "🍽️ 餐點已從廚房(後端)送達！";
+    }, 1500);
+}
+&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Page 3 -->
+        <section class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-6 border-b border-gray-200 bg-blue-50">
+                <h2 class="text-2xl font-bold text-blue-800">Page 3: 前端技術的三大支柱</h2>
+                <p class="mt-2 text-gray-700">解說：HTML 提供結構，CSS 提供外觀（如顏色與排版），JS 賦予互動行為（如點擊後改變狀態）。</p>
+            </div>
+            <div class="p-6">
+                <h3 class="font-semibold mb-4 text-gray-500">實際輸出樣貌 (Live Demo)</h3>
+                <div class="border border-gray-200 p-6 rounded-lg flex flex-col items-center gap-4">
+                    <!-- HTML 結構, Tailwind 作為 CSS, onclick 作為 JS -->
+                    <div id="box3" class="w-32 h-32 bg-gray-300 border-4 border-gray-500 flex items-center justify-center font-bold transition-all duration-300">HTML 骨架</div>
+                    <button class="bg-green-600 text-white px-4 py-2 rounded" onclick="document.getElementById('box3').className='w-32 h-32 bg-blue-500 border-4 border-blue-700 text-white rounded-full flex items-center justify-center font-bold shadow-lg transition-all duration-500 transform hover:scale-110'; document.getElementById('box3').innerText='加入 CSS/JS';">加上 CSS 與 JS 肌肉</button>
+                </div>
+            </div>
+            <div class="relative bg-gray-900 p-4">
+                <button onclick="copyCode(this)" class="absolute top-4 right-4 bg-gray-700 text-white text-xs px-3 py-1 rounded hover:bg-gray-600">複製代碼</button>
+                <pre class="overflow-x-auto text-green-400 text-sm p-2"><code>&lt;!-- HTML 骨架與 CSS 外觀 --&gt;
+&lt;div id="box" class="w-32 h-32 bg-gray-300 flex items-center justify-center"&gt;HTML&lt;/div&gt;
+
+&lt;!-- JavaScript 互動 --&gt;
+&lt;button onclick="document.getElementById('box').classList.add('bg-blue-500', 'rounded-full', 'text-white')"&gt;
+    加上 CSS 與 JS 肌肉
+&lt;/button&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Page 4 & 5 (合併為趨勢應用) -->
+        <section class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-6 border-b border-gray-200 bg-blue-50">
+                <h2 class="text-2xl font-bold text-blue-800">Page 4 & 5: 後端資料與 2024 深色模式趨勢</h2>
+                <p class="mt-2 text-gray-700">解說：模擬從後端資料庫提取商品，並結合深色模式 (Dark Mode) 的個人化體驗設計。</p>
+            </div>
+            <div class="p-6">
+                <h3 class="font-semibold mb-4 text-gray-500">實際輸出樣貌 (Live Demo)</h3>
+                <div id="productCard" class="border p-6 rounded-xl bg-white text-gray-900 transition-colors duration-300 max-w-sm mx-auto shadow">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-sm font-bold bg-green-100 text-green-800 px-2 py-1 rounded">資料庫庫存: 5 件</span>
+                        <button onclick="toggleDarkMode()" class="text-xs border px-2 py-1 rounded hover:bg-gray-200 dark:hover:bg-gray-700">切換深色模式</button>
+                    </div>
+                    <div class="h-40 bg-gray-200 rounded-lg mb-4 flex items-center justify-center text-gray-400">商品圖片 (沉浸式展示)</div>
+                    <h4 class="text-xl font-bold mb-2">高階抗噪耳機</h4>
+                    <p class="mb-4 opacity-80">沉浸式的聆聽體驗，AI 驅動環境音控制。</p>
+                    <button class="w-full bg-black text-white dark:bg-white dark:text-black py-2 rounded-lg font-bold">加入購物車</button>
+                </div>
+            </div>
+            <div class="relative bg-gray-900 p-4">
+                <button onclick="copyCode(this)" class="absolute top-4 right-4 bg-gray-700 text-white text-xs px-3 py-1 rounded hover:bg-gray-600">複製代碼</button>
+                <pre class="overflow-x-auto text-green-400 text-sm p-2"><code>&lt;!-- Tailwind 支援深色模式切換 --&gt;
+&lt;div id="productCard" class="bg-white text-gray-900 transition-colors"&gt;
+    &lt;button onclick="toggleDarkMode()"&gt;切換深色模式&lt;/button&gt;
+    &lt;h4&gt;高階抗噪耳機&lt;/h4&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+function toggleDarkMode() {
+    const card = document.getElementById('productCard');
+    // 切換深色與淺色類別
+    card.classList.toggle('bg-white');
+    card.classList.toggle('bg-gray-900');
+    card.classList.toggle('text-gray-900');
+    card.classList.toggle('text-white');
+}
+&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Page 6 & 7 -->
+        <section class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-6 border-b border-gray-200 bg-blue-50">
+                <h2 class="text-2xl font-bold text-blue-800">Page 6 & 7: 響應式網頁 (RWD) 與行動優先</h2>
+                <p class="mt-2 text-gray-700">解說：請嘗試縮放瀏覽器視窗。版面會從手機版的單欄位（瀑布流），自動擴展為平板的 2 欄，以及桌機的 4 欄。這就是 CSS Grid 的威力。</p>
+            </div>
+            <div class="p-6">
+                <h3 class="font-semibold mb-4 text-gray-500">實際輸出樣貌 (Live Demo)</h3>
+                <!-- Grid: 預設1欄 (Mobile), md:2欄 (Tablet), lg:4欄 (Desktop) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-blue-100 p-4 rounded-lg text-center font-bold">商品區塊 1</div>
+                    <div class="bg-blue-200 p-4 rounded-lg text-center font-bold">商品區塊 2</div>
+                    <div class="bg-blue-300 p-4 rounded-lg text-center font-bold">商品區塊 3</div>
+                    <div class="bg-blue-400 p-4 rounded-lg text-center font-bold">商品區塊 4</div>
+                </div>
+            </div>
+            <div class="relative bg-gray-900 p-4">
+                <button onclick="copyCode(this)" class="absolute top-4 right-4 bg-gray-700 text-white text-xs px-3 py-1 rounded hover:bg-gray-600">複製代碼</button>
+                <pre class="overflow-x-auto text-green-400 text-sm p-2"><code>&lt;!-- Mobile First: 預設 grid-cols-1, 螢幕變大時漸進增強 --&gt;
+&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"&gt;
+    &lt;div class="bg-blue-100 p-4"&gt;商品 1&lt;/div&gt;
+    &lt;div class="bg-blue-200 p-4"&gt;商品 2&lt;/div&gt;
+    &lt;div class="bg-blue-300 p-4"&gt;商品 3&lt;/div&gt;
+    &lt;div class="bg-blue-400 p-4"&gt;商品 4&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Page 8 -->
+        <section class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-6 border-b border-gray-200 bg-blue-50">
+                <h2 class="text-2xl font-bold text-blue-800">Page 8: UI / UX 基礎交集</h2>
+                <p class="mt-2 text-gray-700">解說：視覺外觀(UI)很美，但如果點擊範圍太小就是糟糕的體驗(Bad UX)。好的設計必須兼顧美觀與易用性(Good UI+UX)。</p>
+            </div>
+            <div class="p-6">
+                <h3 class="font-semibold mb-4 text-gray-500">實際輸出樣貌 (Live Demo)</h3>
+                <div class="flex flex-col md:flex-row gap-8 items-center justify-center border p-8 rounded-lg bg-gray-50">
+                    <div class="text-center">
+                        <p class="mb-2 text-red-500 font-bold">❌ Bad UX</p>
+                        <!-- 點擊範圍過小的按鈕 -->
+                        <div class="p-4 bg-white border shadow flex items-center justify-center w-48 h-24">
+                            <button class="text-[10px] bg-gradient-to-r from-purple-400 to-pink-500 text-white px-2 py-1 rounded shadow-lg">結帳</button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <p class="mb-2 text-green-600 font-bold">✅ Good UI & UX</p>
+                        <!-- 點擊範圍大的按鈕 -->
+                        <div class="p-4 bg-white border shadow flex items-center justify-center w-48 h-24">
+                            <button class="w-full h-full bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white text-lg font-bold rounded-lg shadow-lg transition-transform hover:scale-105 active:scale-95">結帳</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative bg-gray-900 p-4">
+                <button onclick="copyCode(this)" class="absolute top-4 right-4 bg-gray-700 text-white text-xs px-3 py-1 rounded hover:bg-gray-600">複製代碼</button>
+                <pre class="overflow-x-auto text-green-400 text-sm p-2"><code>&lt;!-- Bad UX: 按鈕太小，難以點擊 --&gt;
+&lt;button class="text-xs px-2 py-1"&gt;結帳&lt;/button&gt;
+
+&lt;!-- Good UX: 按鈕寬度飽滿，點擊範圍大，具備 Hover 互動回饋 --&gt;
+&lt;button class="w-full h-full text-lg font-bold rounded-lg transition-transform hover:scale-105"&gt;
+    結帳
+&lt;/button&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Page 9 & 10 -->
+        <section class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-6 border-b border-gray-200 bg-blue-50">
+                <h2 class="text-2xl font-bold text-blue-800">Page 9 & 10: 視覺階層、字型學與色彩心理學</h2>
+                <p class="mt-2 text-gray-700">解說：透過標題大小(H1>H2>Body)引導視線。並利用色彩暗示使用者行為（紅：急迫，綠：肯定，藍：信任，黑：高端）。</p>
+            </div>
+            <div class="p-6">
+                <h3 class="font-semibold mb-4 text-gray-500">實際輸出樣貌 (Live Demo)</h3>
+                <div class="border p-8 rounded-lg">
+                    <!-- Typography Hierarchy -->
+                    <h1 class="text-4xl font-extrabold text-gray-900 mb-2">極致工藝筆電 Pro (H1)</h1>
+                    <h2 class="text-xl font-medium text-gray-500 mb-6">搭載最新 M4 晶片，效能突破極限 (H2)</h2>
+                    <p class="text-gray-700 leading-relaxed mb-8">這是一段經過設計的內文，提供了詳細的規格與描述。透過字重、大小和顏色的對比，資訊變得清晰易讀，引導讀者輕鬆獲取所需內容。(Body)</p>
+                    
+                    <!-- Color Psychology -->
+                    <div class="flex flex-wrap gap-4">
+                        <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded font-bold shadow">限時促銷 (急迫)</button>
+                        <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded font-bold shadow">加入購物車 (肯定)</button>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded font-bold shadow">安全支付 (信任)</button>
+                        <button class="bg-black hover:bg-gray-800 text-white px-6 py-2 rounded font-bold shadow">尊榮黑卡 (權威)</button>
+                    </div>
+                </div>
+            </div>
+            <div class="relative bg-gray-900 p-4">
+                <button onclick="copyCode(this)" class="absolute top-4 right-4 bg-gray-700 text-white text-xs px-3 py-1 rounded hover:bg-gray-600">複製代碼</button>
+                <pre class="overflow-x-auto text-green-400 text-sm p-2"><code>&lt;!-- 視覺階層 --&gt;
+&lt;h1 class="text-4xl font-extrabold text-gray-900"&gt;大標題 H1&lt;/h1&gt;
+&lt;h2 class="text-xl font-medium text-gray-500"&gt;副標題 H2&lt;/h2&gt;
+&lt;p class="text-gray-700"&gt;內文段落 Body&lt;/p&gt;
+
+&lt;!-- 色彩按鈕 --&gt;
+&lt;button class="bg-red-600 text-white"&gt;限時促銷&lt;/button&gt;
+&lt;button class="bg-green-600 text-white"&gt;加入購物車&lt;/button&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Page 11 & 12 -->
+        <section class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-6 border-b border-gray-200 bg-blue-50">
+                <h2 class="text-2xl font-bold text-blue-800">Page 11 & 12: 留白美學與 Z型掃描路徑</h2>
+                <p class="mt-2 text-gray-700">解說：利用戰略性留白(Padding/Margin)凸顯重點，並順應使用者的 Z型視線(左上Logo → 右上選單 → 右下結帳)。</p>
+            </div>
+            <div class="p-6">
+                <h3 class="font-semibold mb-4 text-gray-500">實際輸出樣貌 (Live Demo)</h3>
+                <div class="border-2 border-gray-800 rounded-lg max-w-3xl mx-auto relative bg-white">
+                    <!-- Z-pattern line simulation (just for visual guide) -->
+                    <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-20" preserveAspectRatio="none">
+                        <path d="M 50 40 L 95% 40 L 50 90% L 95% 90%" stroke="red" stroke-width="20" fill="none" stroke-linejoin="round"/>
+                    </svg>
+                    
+                    <!-- Header -->
+                    <div class="flex justify-between items-center p-6 border-b">
+                        <div class="text-2xl font-black tracking-tighter">BRAND LOGO</div>
+                        <nav class="space-x-4 hidden sm:block">
+                            <a href="#" class="text-gray-600 hover:text-black">商品</a>
+                            <a href="#" class="text-gray-600 hover:text-black">關於</a>
+                            <a href="#" class="font-bold border-b-2 border-black pb-1">購物車 (3)</a>
+                        </nav>
+                    </div>
+                    <!-- Hero Section with Whitespace -->
+                    <div class="p-16 md:p-24 text-center">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-6">純粹設計，極簡生活</h2>
+                        <p class="text-gray-500 mb-10 max-w-md mx-auto">大量的留白讓大腦能夠休息，並將視線自然引導至最下方的行動呼籲按鈕。</p>
+                    </div>
+                    <!-- Footer / CTA -->
+                    <div class="flex justify-end p-6 border-t bg-gray-50">
+                        <button class="bg-blue-600 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-blue-700">立即結帳</button>
+                    </div>
+                </div>
+            </div>
+            <div class="relative bg-gray-900 p-4">
+                <button onclick="copyCode(this)" class="absolute top-4 right-4 bg-gray-700 text-white text-xs px-3 py-1 rounded hover:bg-gray-600">複製代碼</button>
+                <pre class="overflow-x-auto text-green-400 text-sm p-2"><code>&lt;!-- 留白 (Padding p-16) 與 Z型佈局 (Flex justify-between, justify-end) --&gt;
+&lt;header class="flex justify-between p-6"&gt;
+    &lt;div&gt;LOGO (左上)&lt;/div&gt;
+    &lt;nav&gt;選單 (右上)&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main class="p-24 text-center"&gt;
+    &lt;h1&gt;大量留白區域&lt;/h1&gt;
+&lt;/main&gt;
+
+&lt;footer class="flex justify-end p-6"&gt;
+    &lt;button&gt;CTA按鈕 (右下)&lt;/button&gt;
+&lt;/footer&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Page 13 & 14 -->
+        <section class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-6 border-b border-gray-200 bg-blue-50">
+                <h2 class="text-2xl font-bold text-blue-800">Page 13 & 14: 購物車動線與完美商品卡片</h2>
+                <p class="mt-2 text-gray-700">解說：清晰的步驟進度條能降低結帳摩擦力。商品卡片必須具備社會證明(標籤)、高對比價格與強烈 CTA。</p>
+            </div>
+            <div class="p-6">
+                <h3 class="font-semibold mb-4 text-gray-500">實際輸出樣貌 (Live Demo)</h3>
+                
+                <!-- Linear Flowchart -->
+                <div class="flex items-center justify-between max-w-2xl mx-auto mb-12 text-sm md:text-base font-bold text-gray-400">
+                    <span class="text-blue-600 flex flex-col items-center"><span class="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center mb-1">1</span>商品頁</span>
+                    <span class="flex-1 h-1 mx-2 bg-blue-200"></span>
+                    <span class="flex flex-col items-center"><span class="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center mb-1">2</span>購物車</span>
+                    <span class="flex-1 h-1 mx-2 bg-gray-200"></span>
+                    <span class="flex flex-col items-center"><span class="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center mb-1">3</span>結帳(訪客)</span>
+                </div>
+
+                <!-- Product Card Anatomy -->
+                <div class="w-72 mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 group relative cursor-pointer">
+                    <!-- 社會證明標籤 -->
+                    <div class="absolute top-3 left-3 bg-red-500 text-white text-xs font-black px-2 py-1 rounded uppercase tracking-wider z-10">Best Seller</div>
+                    <!-- 去背商品圖 (Hover Zoom) -->
+                    <div class="h-64 bg-gray-100 p-8 overflow-hidden">
+                        <!-- 用簡單形狀模擬精緻商品圖 -->
+                        <div class="w-full h-full bg-white rounded-full shadow-inner border-4 border-gray-200 transform group-hover:scale-110 transition-transform duration-500 flex items-center justify-center text-gray-400 font-bold">Product Image</div>
+                    </div>
+                    <!-- 資訊層級 -->
+                    <div class="p-6 text-center">
+                        <p class="text-xs text-gray-500 font-semibold tracking-widest uppercase mb-1">Nordic Home</p>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">極簡陶瓷茶壺 (1.2L)</h3>
+                        <div class="flex justify-center items-baseline gap-2 mb-4">
+                            <span class="text-xl font-black text-red-600">$49.99</span>
+                            <span class="text-sm text-gray-400 line-through">$69.99</span>
+                        </div>
+                        <!-- CTA -->
+                        <button class="w-full bg-black text-white font-bold py-3 rounded-xl hover:bg-gray-800 transition shadow-md active:transform active:scale-95">立即加入購物車</button>
+                    </div>
+                </div>
+            </div>
+            <div class="relative bg-gray-900 p-4">
+                <button onclick="copyCode(this)" class="absolute top-4 right-4 bg-gray-700 text-white text-xs px-3 py-1 rounded hover:bg-gray-600">複製代碼</button>
+                <pre class="overflow-x-auto text-green-400 text-sm p-2"><code>&lt;!-- 完美商品卡片結構 --&gt;
+&lt;div class="group relative overflow-hidden rounded-2xl shadow-xl"&gt;
+    &lt;!-- 標籤 --&gt;
+    &lt;div class="absolute top-3 left-3 bg-red-500 text-white text-xs"&gt;Best Seller&lt;/div&gt;
+    
+    &lt;!-- 圖片 (Hover 放大效果 group-hover:scale-110) --&gt;
+    &lt;div class="overflow-hidden"&gt;
+        &lt;img src="..." class="transform group-hover:scale-110 transition"&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- 資訊與按鈕 --&gt;
+    &lt;div class="p-6"&gt;
+        &lt;h3 class="text-lg font-bold"&gt;商品名稱&lt;/h3&gt;
+        &lt;span class="text-xl font-black text-red-600"&gt;$49.99&lt;/span&gt;
+        &lt;button class="w-full bg-black text-white"&gt;加入購物車&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Page 15 -->
+        <section class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-6 border-b border-gray-200 bg-blue-50">
+                <h2 class="text-2xl font-bold text-blue-800">Page 15: AI 輔助設計工具概覽</h2>
+                <p class="mt-2 text-gray-700">解說：下午實作會用到的工具矩陣，分類為「文字與架構」與「視覺與風格」。</p>
+            </div>
+            <div class="p-6">
+                <h3 class="font-semibold mb-4 text-gray-500">實際輸出樣貌 (Live Demo)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 文字類 -->
+                    <div class="border p-6 rounded-xl bg-purple-50 hover:shadow-md transition">
+                        <h4 class="font-bold text-purple-800 mb-4 flex items-center gap-2">📝 文字與架構生成</h4>
+                        <ul class="space-y-3">
+                            <li class="bg-white p-3 rounded shadow-sm"><strong>ChatGPT:</strong> 企劃與文案生成</li>
+                            <li class="bg-white p-3 rounded shadow-sm"><strong>Claude:</strong> 邏輯架構與 Sitemap 梳理</li>
+                        </ul>
+                    </div>
+                    <!-- 視覺類 -->
+                    <div class="border p-6 rounded-xl bg-emerald-50 hover:shadow-md transition">
+                        <h4 class="font-bold text-emerald-800 mb-4 flex items-center gap-2">🎨 視覺與風格生成</h4>
+                        <ul class="space-y-3">
+                            <li class="bg-white p-3 rounded shadow-sm"><strong>Midjourney:</strong> 高質感風格示意圖</li>
+                            <li class="bg-white p-3 rounded shadow-sm"><strong>DALL·E:</strong> 快速概念草圖生成</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+
+    <!-- JavaScript for Copy Button functionality -->
+    <script>
+        function copyCode(button) {
+            // 找到按鈕旁邊的 pre > code 元素
+            const codeBlock = button.nextElementSibling.querySelector('code');
+            const codeText = codeBlock.innerText;
+
+            // 複製到剪貼簿
+            navigator.clipboard.writeText(codeText).then(() => {
+                // 更改按鈕文字作為回饋
+                const originalText = button.innerText;
+                button.innerText = '已複製！';
+                button.classList.add('bg-green-600');
+                button.classList.remove('bg-gray-700');
+                
+                setTimeout(() => {
+                    button.innerText = originalText;
+                    button.classList.remove('bg-green-600');
+                    button.classList.add('bg-gray-700');
+                }, 2000);
+            }).catch(err => {
+                console.error('無法複製代碼: ', err);
+                button.innerText = '複製失敗';
+            });
+        }
+    </script>
+</body>
+</html>
